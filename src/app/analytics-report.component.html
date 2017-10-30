@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="d-flex">
+    <div class="p-2" *ngIf="property">
+      <h2 class="mb-3 h3">{{ property.name }}
+        <small class="text-muted h5">{{ property.id }}</small><br>
+        <small class="text-muted h6">data for the past year</small>
+      </h2>
+    </div>
+    <div class="ml-auto p-2"><a class="btn btn-outline-primary" routerLink="/analytics/accounts"><small>Back to Accounts Page</small></a></div>
+  </div>
+  <ngb-tabset>
+    <ngb-tab title="Overview">
+      <ng-template ngbTabContent>
+        <analytics-overview [viewId]="viewId"></analytics-overview>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Audience">
+      <ng-template ngbTabContent>
+        <analytics-audience [viewId]="viewId"></analytics-audience>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Mobile">
+      <ng-template ngbTabContent>
+          <analytics-mobile [viewId]="viewId"></analytics-mobile>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Traffic Sources">
+      <ng-template ngbTabContent>
+        <analytics-traffic [viewId]="viewId"></analytics-traffic>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="LandingPage">
+      <ng-template ngbTabContent>
+          <analytics-content [viewId]="viewId"></analytics-content>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Conversions">
+      <ng-template ngbTabContent>
+          <analytics-conversions [viewId]="viewId"></analytics-conversions>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

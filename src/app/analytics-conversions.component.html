@@ -1,0 +1,42 @@
+<div class="row py-5">
+  <div class="col-12 mb-3">
+    <chart [options]="monthlyOptions"></chart>
+  </div>
+  <div class="col-12 mb-5">
+    <div class="row text-center" *ngIf="monthlyData">
+      <div class="col-2">
+        <h4>{{ monthlyData['ga:goalCompletionsAll']['total'] | number }}</h4>
+        <div class="text-muted">Goal Completions</div>
+      </div>
+      <div class="col-2">
+        <h4>{{ monthlyData['ga:goalConversionRateAll']['total'] | number:'.0-0' }}%</h4>
+        <div class="text-muted">Goal Conversion Rate</div>
+      </div>
+      <div class="col-2">
+        <h4>{{ monthlyData['ga:goalValueAll']['total'] | number }}</h4>
+        <div class="text-muted">Goal Value</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mb-3" *ngIf="goalLocationData">
+    <h5 class="text-center mb-3">Goal URLs</h5>
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Goal Completion Location</th>
+          <th class="w-25">Goal Completions</th>
+          <th class="w-25">Goal Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of goalLocationData">
+          <td>{{ data.path }}</td>
+          <td>{{ data.goalComplections | number }}</td>
+          <td>{{ data.goalValue | number }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <chart [options]="goalLocationOptions"></chart> -->
+  </div>
+
+</div>

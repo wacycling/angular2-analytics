@@ -1,0 +1,5 @@
+.table ul li {
+  width: 100%;
+}.table ul li:nth-child(n + 2) {
+  margin-top: 5px;
+}
